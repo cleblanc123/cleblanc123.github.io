@@ -14,9 +14,10 @@ table {
 #logo {
     size: 10%;
     padding: 15px;
-    align-self: center;
-    margin-left: 5%;
-    margin-right: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 .headings {
     font-family: "Papyrus";
