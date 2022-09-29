@@ -4,9 +4,8 @@ body {
     color: white;
 }
 table {
-    border: solid 1px white;
     font-family: "Papyrus";
-    font-size: 14pt;
+    font-size: 16pt;
 }
 .title {
     font-family: "Papyrus";
@@ -57,5 +56,9 @@ table {
 .top-nav a:hover {
     background-color: #8d1d2a;
     color: white;
+}
+a href {
+    text-decoration: none;
+    color:red;
 }
 
