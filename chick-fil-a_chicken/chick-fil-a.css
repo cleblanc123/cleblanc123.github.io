@@ -27,7 +27,7 @@ table {
 #invitation {
     text-align: center;
 }
-.top-nav {
+nav {
     text-decoration: none;
     overflow: hidden;
     background-color: rgba(240, 248, 255, .52);
@@ -37,7 +37,7 @@ table {
     width: 100%;
     font-family: "Papyrus";
 }
-.top-nav a {
+nav a {
     float: left;
     color: black;
     text-align: center;
@@ -46,19 +46,19 @@ table {
     font-size: 17px;
     border-right: 1px solid black;
 }
-.top-nav a:visited { 
+nav a:visited { 
     background-color:lightslategray;
   }
-.top-nav a.active {
+nav a.active {
     background-color: #F63B50;
     color: white;
 }
-.top-nav a:hover {
+nav a:hover {
     background-color: #8d1d2a;
     color: white;
 }
-a href {
-    text-decoration: none;
-    color:red;
+a {
+    color:white;
+    text-decoration: underline;
+    
 }
-
