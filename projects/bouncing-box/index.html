@@ -81,7 +81,16 @@
 					min = 0;
 					max = Math.floor(boardWidth);
 					return Math.floor(Math.random() * boardWidth); // The maximum is exclusive and the minimum is inclusive
-				}
+			}
+			function colorGenerator() {
+			if(points % 3 === 0){
+				var red = Math.floor(Math.random() * 255);
+				var green = Math.floor(Math.random() * 255);
+				var blue = Math.floor(Math.random() * 255);
+				return "rgb(" + red + "," + green + "," + blue + ")"
+			}
+		}
+			var randomColor = colorGenerator();
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -109,19 +118,6 @@
 			
 			};
 
-			
-			function colorGenerator() {
-				if(points % 3 === 0){
-					var red = Math.floor(Math.random() * 255);
-					var green = Math.floor(Math.random() * 255);
-					var blue = Math.floor(Math.random() * 255);
-					return "rgb(" + red + "," + green + "," + blue + ")"
-				}
-			}
-			var randomColor = colorGenerator();
-			
-			
-			
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
