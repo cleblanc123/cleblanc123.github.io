@@ -46,15 +46,13 @@
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 			var boardHeight = board.height();
-			
-			var misClicks = 0;
 			// Every 50 milliseconds, call the update Function (see below)
 			
 			var interval = setInterval(update, 50);
-			
+			var misClicks = 0;
 			
 			function trackMisClicks() {
-				misClicks += misClicks;
+				misClicks = misClicks + 1;
 			}
 			function endGame() {
 				clearInterval(interval);
@@ -154,9 +152,9 @@
 					}
 					
 					positionY = 0;
-					if(speed > 0) {
+					if(speed >= 0) {
 						speedY = (speedY + 3)
-					} else if (positionY < 0) {
+					} else if (positionY <= 0) {
 						speedY = (speedY - 3);
 					}
 				}
