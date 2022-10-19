@@ -46,16 +46,29 @@
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 			var boardHeight = board.height();
-
+			
+			var misClicks = 0;
 			// Every 50 milliseconds, call the update Function (see below)
+			
 			var interval = setInterval(update, 50);
+			
+			
+			function trackMisClicks() {
+				misClicks += misClicks;
+			}
 			function endGame() {
 				clearInterval(interval);
 			}
+
+			if (misClicks === 10) {
+				endGame();
+			}
+
+
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
-			board.on('click', handleMisclick);
+			board.on('click', trackMisClicks);
 			
 
 			// moves the Box to a new position on the screen along the X-Axis
@@ -74,7 +87,6 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var failedClicks = 0;
 			var positionX = 0;
 			var points = 1;
 			var speed = 10;
@@ -94,7 +106,8 @@
 				return "rgb(" + red + "," + green + "," + blue + ")"
 			}
 			var randomColor = colorGenerator();
-			
+
+
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -127,12 +140,6 @@
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
-			function handleMisclick() {
-				failedClicks += failedClicks;
-				if(failedClicks === 10) {
-					endgame();
-				}
-			}
 
 			function handleBoxClick() {
 				positionX = getRandomInt();
