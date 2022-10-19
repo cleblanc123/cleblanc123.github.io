@@ -57,16 +57,11 @@
 			function endGame() {
 				clearInterval(interval);
 			}
-
-			if (misClicks === 10) {
-				endGame();
-			}
-
-
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
 			board.on('click', trackMisClicks);
+			//For some reason the computer a click on the box as a board click, this is more or less a technical issue: How do I code this to change it?
 			
 
 			// moves the Box to a new position on the screen along the X-Axis
@@ -118,6 +113,7 @@
 				positionX = (positionX + speed);
 				positionY = (positionY + speedY);
 				moveBoxTo(positionX, positionY);
+
 				
 
 				//This tells the box to turn around if it hits the left or ride side.
@@ -130,7 +126,11 @@
 				}else if (positionY <= 0) {
 					speedY = speedY * -1;
 				}
-			
+
+				if (misClicks === 10) {
+					endGame();
+				}
+				console.log(misClicks); // for testing purposes, will remove later
 			};
 
 			/* 
@@ -149,13 +149,6 @@
 						speed = (speed + 3);
 					} else if (speed < 0) {
 						speed = (speed - 3);
-					}
-					
-					positionY = 0;
-					if(speed >= 0) {
-						speedY = (speedY + 3)
-					} else if (positionY <= 0) {
-						speedY = (speedY - 3);
 					}
 				}
 				
