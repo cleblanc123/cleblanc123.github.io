@@ -48,10 +48,15 @@
 			var boardHeight = board.height();
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			var interval = setInterval(update, 50);
+			function endGame() {
+				clearInterval(interval);
+			}
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
+			board.on('click', handleMisclick);
+			
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX, newPositionY) {
@@ -69,7 +74,7 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var failedClicks = 0;
 			var positionX = 0;
 			var points = 1;
 			var speed = 10;
@@ -78,19 +83,18 @@
 			var speedY = 8;
 
 			function getRandomInt(min, max) {
-					min = 0;
-					max = Math.floor(boardWidth);
-					return Math.floor(Math.random() * boardWidth); // The maximum is exclusive and the minimum is inclusive
+				min = 0;
+				max = Math.floor(boardWidth);
+				return Math.floor(Math.random() * boardWidth);
 			}
 			function colorGenerator() {
-			if(points % 3 === 0){
 				var red = Math.floor(Math.random() * 255);
 				var green = Math.floor(Math.random() * 255);
 				var blue = Math.floor(Math.random() * 255);
 				return "rgb(" + red + "," + green + "," + blue + ")"
 			}
-		}
 			var randomColor = colorGenerator();
+			
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -123,25 +127,39 @@
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
+			function handleMisclick() {
+				failedClicks += failedClicks;
+				if(failedClicks === 10) {
+					endgame();
+				}
+			}
+
 			function handleBoxClick() {
 				positionX = getRandomInt();
 
 				changeBoxText(points = points + 1);
 
-				if(speed > 0) {
-					speed = (speed + 3);
-				} else if (speed < 0) {
-					speed = (speed - 3);
+				if(points % 3 === 0) {
+					if(speed > 0) {
+						speed = (speed + 3);
+					} else if (speed < 0) {
+						speed = (speed - 3);
+					}
+					
+					positionY = 0;
+					if(speed > 0) {
+						speedY = (speedY + 3)
+					} else if (positionY < 0) {
+						speedY = (speedY - 3);
+					}
 				}
 				
-				positionY = 0;
-				if(speed > 0) {
-					speedY = (speedY + 3)
-				} else if (positionY < 0) {
-					speedY = (speedY - 3);
-				}
 
-				box.css("background-color", randomColor);
+				if(points % 3 === 0) {
+					randomColor = colorGenerator();
+					box.css("background-color", randomColor);
+				}
+				
 			};
 		})();
 	</script>
