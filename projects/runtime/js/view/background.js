@@ -36,17 +36,41 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'black');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
             
+            var forestBackGround = draw.bitmap("img/Terraria Lake and Forest Background.png");
+            forestBackGround.x = 0;
+            forestBackGround.y = 0;
+            forestBackGround.scaleX = .68;
+            forestBackGround.scaleY = .6;
+            background.addChild(forestBackGround);
+
+            var moon = draw.bitmap("img/moon.png");
+            moon.x = 1200;
+            moon.y = 40;
+            moon.scaleX = .6;
+            moon.scaleY = .6;
+            background.addChild(moon);
             
+            for(var i = 0; i < 100; i++) {
+                var circle = draw.circle(1, "white", "LightGray", 1.5);
+                circle.x = canvasWidth * Math.random();
+                circle.y = 100 * Math.random();
+                background.addChild(circle);
+            }
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
             
             // TODO 4: Part 1 - Add a tree
-            
+            var tree = draw.bitmap("img/tree.png");
+            tree.x = 200;
+            tree.y = ground.y - 180;
+            tree.scaleX = .4
+            tree.scaleY = .4
+            background.addChild(tree);
             
         } // end of render function - DO NOT DELETE
         
@@ -60,7 +84,10 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            
+            tree.x = tree.x - 1; // <- this is not moving the tree for some reason...
+            if (tree.x <= -200) {
+                tree.x = canvasWidth;
+            }
             
             // TODO 5: Part 2 - Parallax
             
