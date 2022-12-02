@@ -37,17 +37,15 @@ var background = function (window) {
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
             
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'black');
+            var backgroundFill = draw.bitmap("img/Terraria Lake and Forest Background.png");
+            backgroundFill.scaleX = .81;
+            backgroundFill.scaleY = .75;
+            //draw.rect(canvasWidth,canvasHeight,'black');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
             
-            var forestBackGround = draw.bitmap("img/Terraria Lake and Forest Background.png");
-            forestBackGround.x = 0;
-            forestBackGround.y = 0;
-            forestBackGround.scaleX = .81;
-            forestBackGround.scaleY = .75;
-            background.addChild(forestBackGround);
+           
 
             var moon = draw.bitmap("img/moon.png");
             moon.x = canvasWidth - 75;
@@ -67,7 +65,7 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add a tree
             var tree = draw.bitmap("img/tree.png");
-            tree.x = 200;
+            tree.x = 900;
             tree.y = ground.y - 180;
             tree.scaleX = .4
             tree.scaleY = .4
@@ -85,9 +83,9 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x - 1; // <- this is not moving the tree for some reason...
-            if (tree.x <= -200) {
-                tree.x = canvasWidth;
+            tree.x = tree.x + 1;
+            if (tree.x < -200) {
+            tree.x = canvasWidth;
             }
             
             // TODO 5: Part 2 - Parallax
