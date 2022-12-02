@@ -44,12 +44,12 @@ var background = function (window) {
             var forestBackGround = draw.bitmap("img/Terraria Lake and Forest Background.png");
             forestBackGround.x = 0;
             forestBackGround.y = 0;
-            forestBackGround.scaleX = .68;
-            forestBackGround.scaleY = .6;
+            forestBackGround.scaleX = .81;
+            forestBackGround.scaleY = .75;
             background.addChild(forestBackGround);
 
             var moon = draw.bitmap("img/moon.png");
-            moon.x = 1200;
+            moon.x = 1400;
             moon.y = 40;
             moon.scaleX = .6;
             moon.scaleY = .6;
