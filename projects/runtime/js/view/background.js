@@ -36,6 +36,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
+            
             var backgroundFill = draw.rect(canvasWidth,canvasHeight,'black');
             background.addChild(backgroundFill);
             
@@ -49,7 +50,7 @@ var background = function (window) {
             background.addChild(forestBackGround);
 
             var moon = draw.bitmap("img/moon.png");
-            moon.x = 1400;
+            moon.x = canvasWidth - 75;
             moon.y = 40;
             moon.scaleX = .6;
             moon.scaleY = .6;
