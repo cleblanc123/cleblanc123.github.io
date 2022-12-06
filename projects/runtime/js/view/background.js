@@ -25,7 +25,11 @@ var background = function (window) {
         // container which will be returned
         var background;
         
+        
         // ANIMATION VARIABLES HERE:
+        var tree = draw.bitmap("img/tree.png");
+        var mushroom = draw.bitmap("img/Giant_Glowing_Mushroom.png");
+        var buildings = [];
         
      
         // called at the start of game and whenever the page is resized
@@ -61,18 +65,19 @@ var background = function (window) {
                 background.addChild(circle);
             }
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            var buildings = [];
+           
             for (var i = 0; i < 5; i++) {
-                var buildingHeight = 300;
-                var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
-                building.x = 200 * i;
-                building.y = groundY - buildingHeight;
-                background.addChild(building);
-                buildings.push(building);
+                mushroom = draw.bitmap("img/Giant_Glowing_Mushroom.png");
+                mushroom.x = 200 * i;
+                mushroom.y = ground.y - 95;
+                mushroom.scaleX = 1.5;
+                mushroom.scaleY = 1.5;
+                background.addChild(mushroom);
+                buildings.push(mushroom);
             }
 
             // TODO 4: Part 1 - Add a tree
-            var tree = draw.bitmap("img/tree.png");
+            
             tree.x = 900;
             tree.y = ground.y - 180;
             tree.scaleX = .4
@@ -97,7 +102,8 @@ var background = function (window) {
             if (tree.x < -200) {
             tree.x = canvasWidth;
             }
-            
+            mushroom.x = mushroom.x - 1;
+    
             // TODO 5: Part 2 - Parallax
             
 
