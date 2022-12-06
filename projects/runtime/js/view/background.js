@@ -93,10 +93,10 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            // tree.x = tree.x + 1;
-            // if (tree.x < -200) {
-            // tree.x = canvasWidth;
-            // }
+            tree.x = tree.x - 1;
+            if (tree.x < -200) {
+            tree.x = canvasWidth;
+            }
             
             // TODO 5: Part 2 - Parallax
             
