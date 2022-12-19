@@ -32,24 +32,24 @@ var level01 = function (window) {
             ]
         };
 
-        for(var i = 0; i < levelData.gameItems.length; i++) {
-            if(levelData.gameItems[i].type === "sawblade") {
-                createSawBlade(levelData.gameItems.x);
-            };
-            if(levelData.gameItems[i].type === "boulder") {
-                createBoulder(levelData.gameItems.x);
-            };
-            if(levelData.gameItems[i].type === "greenSlime") {
-                createEnemy(levelData.gameItems.x, levelData.gameItems.y);
-            };
-            if(levelData.gameItems[i].type === "oil") {
-                createEnemy(levelData.gameItems.x, levelData.gameItems.y);
-            };
+        // for(var i = 0; i < levelData.gameItems.length; i++) {
+        //     if(levelData.gameItems[i].type === "sawblade") {
+        //         createSawBlade(levelData.gameItems.x);
+        //     };
+        //     if(levelData.gameItems[i].type === "boulder") {
+        //         createBoulder(levelData.gameItems.x);
+        //     };
+        //     if(levelData.gameItems[i].type === "greenSlime") {
+        //         createEnemy(levelData.gameItems.x, levelData.gameItems.y);
+        //     };
+        //     if(levelData.gameItems[i].type === "oil") {
+        //         createEnemy(levelData.gameItems.x, levelData.gameItems.y);
+        //     };
             
             
 
             
-        }
+        // }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(true);
@@ -71,9 +71,9 @@ var level01 = function (window) {
             obstacleImage.y = -5;
         }
 
-        // createSawBlade(650);
-        // createSawBlade(900);
-        // createSawBlade(1200);
+        createSawBlade(650);
+        createSawBlade(900);
+        createSawBlade(1200);
         
         function createBoulder(PositionX) {
             var boulderHitZoneSize = 20;
@@ -88,9 +88,9 @@ var level01 = function (window) {
             boudlerImage.y = -20;
         }
 
-        // createBoulder(400);
-        // createBoulder(1000);
-        // createBoulder(1500);
+        createBoulder(400);
+        createBoulder(1000);
+        createBoulder(1500);
 
         function createEnemy(x,y) {
             var enemy = game.createGameItem("enemy", 25);
@@ -112,10 +112,10 @@ var level01 = function (window) {
                 enemy.fadeOut();
             };
         }
-        // createEnemy(2000, 250);
-        // createEnemy(400, groundY - 10);
-        // createEnemy(800, groundY - 100);
-        // createEnemy(1200, groundY - 50);
+        createEnemy(2000, 250);
+        createEnemy(400, groundY - 10);
+        createEnemy(800, groundY - 100);
+        createEnemy(1200, groundY - 50);
 
         function createReward(x,y) {
             var reward = game.createGameItem("reward", 25);
@@ -133,9 +133,9 @@ var level01 = function (window) {
                 reward.fadeOut();
             };
         }
-        // createReward(500, groundY - 30);
-        // createReward(1000, groundY - 30);
-        // createReward(1500, groundY - 30);
+        createReward(500, groundY - 30);
+        createReward(1000, groundY - 30);
+        createReward(1500, groundY - 30);
 
 
         // DO NOT EDIT CODE BELOW HERE
