@@ -45,10 +45,6 @@ var level01 = function (window) {
         //     if(levelData.gameItems[i].type === "oil") {
         //         createEnemy(levelData.gameItems.x, levelData.gameItems.y);
         //     };
-            
-            
-
-            
         // }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
