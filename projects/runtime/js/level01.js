@@ -16,9 +16,9 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY},
-                { "type": "sawblade", "x": 600, "y": groundY},
+                { "type": "sawblade", "x": 650, "y": groundY},
                 { "type": "sawblade", "x": 900, "y": groundY},
+                { "type": "sawblade", "x": 1200, "y": groundY},
                 { "type": "boulder", "x": 400},
                 { "type": "boulder", "x": 900},
                 { "type": "boulder", "x": 1200},
